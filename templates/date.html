@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Date: {{ date_info.title }}
+{% endblock %}
+
+{% block page_title %}
+    {{ date_info.title }}<br><br>
+    {% if date_info.photo %}
+        <img src="{{ url_for('uploaded_file', filename=date_info.photo) }}">
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <p>{{ date_info.description }}</p>
+    <h2>Logbook</h2>
+    <p>{{ date_info.logbook }}</p>
+    <a href="{{ url_for('edit_date', date_id=date_id) }}"><button type="button">Edit</button></a><br>
+    <a href="{{ url_for('index') }}">Back to the list</a>
+{% endblock %}
+

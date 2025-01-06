@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Edit date: {{ date_info.title }}
+{% endblock %}
+
+{% block page_title %}
+    Editing {{ date_info.title }}<br><br>
+{% endblock %}
+
+{% block content %}
+    <form action="/{{ date_id }}/save" method="post" enctype="multipart/form-data">
+        <label>Title:</label><br>
+        <input name="title" type="text" value="{{ date_info.title }}" required><br><br>
+
+        <label>Photo:</label><br>
+        <input type="file" name="photo" accept="image/*"><br><br>
+
+        <label>Description:</label><br>
+        <textarea name="description" placeholder="Add a description if you want">{{ date_info.description }}</textarea><br><br>
+
+        <label>Logbook:</label><br>
+        <textarea name="logbook" placeholder="Write our experiences here">{{ date_info.logbook }}</textarea><br><br>
+        
+        <button type="submit">Save</button>
+        <a href="{{ url_for('date_page', date_id=date_id) }}"><button type="button">Discard</button></a><br><br>
+    </form>
+    <form action="{{ url_for('delete_date', date_id=date_id) }}" method="post" style="display:inline;">
+        <button type="submit" style="color: rgb(212, 0, 0);">Delete</button>
+    </form><br>
+{% endblock %}
+
+
