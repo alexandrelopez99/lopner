@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block page_title %}
-    Pick the dates you're stoked for!<br><br>
-    <img src="{{ url_for('static', filename='images/pick_date_image.jpeg') }}">
-    
+    Pick the dates you're stoked for!
 {% endblock %}
 
 {% block content %}
+<img src="{{ url_for('static', filename='images/pick_date_image.jpeg') }}">
+
 <form action="/pick_date" method="post">
     <div class="checkbox-container">
         {% for date_id, info in date_ideas.items() %}
@@ -23,10 +23,9 @@
             </label>
         </div>
         {% endfor %}
+        <a href="{{ url_for('add_date') }}"><button>➕ Add new date</button></a>
     </div>
-    <p><a href="{{ url_for('add_date') }}"><button type="button">➕ Add new date</button></a></p>
-    <div class="center">
-        <button type="submit" class="pick">Pick Date!</button>
-    </div>
+    
+    <button type="submit" class="pick">Pick Date!</button>
 </form>
 {% endblock %}  

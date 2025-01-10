@@ -5,59 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}the title{% endblock %}</title>
     <style>
-        html, body {
-            height: 100%;
-            width: 40em;}
-        html {
-            display: table;
-            margin: auto;}
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Centered responsive container */
+        .container {
+            max-width: 45em; /* Max usable area */
+            margin: 0 auto; /* Center on the screen */
+            padding: 1em; /* Add some padding inside */
+        }
+
         body {
-            display: table-cell;
-            vertical-align: middle;}
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+
+        .pagetitle {
+            text-align: center; /* Center the heading */
+            margin-bottom: 1em;
+        }
+
         img {
-            max-width: 100%; 
-            max-height: 15em; 
-            width: auto; 
-            height: auto;}
+            max-width: 100%; /* Ensure image fits within container */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Block-level for better layout */
+            margin: 1em auto; /* Add vertical spacing */
+        }
             
         a {
             color: rgb(0, 93, 122);
-            text-decoration: none;}
-        header {
-            text-align: center;}
-        .center {
-            text-align: center;}
+            text-decoration: none;
+        }
+
         .pick {
+            display: block; /* Turn the button into a block-level element */
+            margin: 35px auto; /* Center it horizontally and add vertical margin */
             font-weight: bold;
             font-size: 14pt;
             background-color: #fe9796;
             color: white;
-            padding: 15px 32px;}
+            padding: 15px 32px;
+            border-radius: 7px;
+        }
+
         .pick:hover {
-            background-color: #e06f6e;}
+            background-color: #e06f6e;
+        }
+        
         button {
             cursor: pointer;
+            padding: 2px 5px;
         }
 
         .checkbox-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(13em, 1fr));
+            grid-template-columns: repeat(auto-fit, 14em);
             gap: 5px; 
-            margin: auto;}
+            margin: 0 auto;
+            justify-content: center;
+        }
+
         .checkbox-item {
             display: flex;
-            align-items: center;}
+            align-items: center;
+        }
+
         .checkbox-item input {
-            margin-right: 10px;}
+            margin-right: 10px;
+        }
+
     </style>
 </head>
 <body>
-    <header>
-        <h1>{% block page_title %}the page title{% endblock %}</h1>
-    </header>
+    <div class="container">
+        <h1 class="pagetitle">{% block page_title %}the page title{% endblock %}</h1>
 
-    <main> 
         {% block content %}the content{% endblock %}
-    </main>
+    </div>
 </body>
 </html>

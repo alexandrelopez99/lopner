@@ -6,12 +6,12 @@
 
 {% block page_title %}
     {{ date_info.title }}<br><br>
-    {% if date_info.photo %}
-        <img src="{{ url_for('uploaded_file', filename=date_info.photo) }}">
-    {% endif %}
 {% endblock %}
 
 {% block content %}
+    {% if date_info.photo %}
+    <img src="{{ url_for('uploaded_file', filename=date_info.photo) }}">
+    {% endif %}
     <p>{{ date_info.description }}</p>
     <h2>Logbook</h2>
     <p>{{ date_info.logbook }}</p>

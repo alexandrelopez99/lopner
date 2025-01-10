@@ -11,18 +11,18 @@
 {% block content %}
     <form action="/{{ date_id }}/save" method="post" enctype="multipart/form-data">
         <label>Title:</label><br>
-        <input name="title" type="text" value="{{ date_info.title }}" required><br><br>
+        <input name="title" type="text" value="{{ date_info.title }}" style="width: 13em;" required><br><br>
 
         <label>Photo:</label><br>
         <input type="file" name="photo" accept="image/*"><br><br>
 
         <label>Description:</label><br>
-        <textarea name="description" placeholder="Add a description if you want">{{ date_info.description }}</textarea><br><br>
+        <textarea name="description" placeholder="Add a description if you want" rows="2" cols="40">{{ date_info.description }}</textarea><br><br>
 
         <label>Logbook:</label><br>
-        <textarea name="logbook" placeholder="Write our experiences here">{{ date_info.logbook }}</textarea><br><br>
+        <textarea name="logbook" placeholder="Write our experiences here" rows="7" style="width: 100%;">{{ date_info.logbook }}</textarea><br><br>
         
-        <button type="submit">Save</button>
+        <button type="submit" style="color: rgb(31, 133, 0)">Save</button>
         <a href="{{ url_for('date_page', date_id=date_id) }}"><button type="button">Discard</button></a><br><br>
     </form>
     <form action="{{ url_for('delete_date', date_id=date_id) }}" method="post" style="display:inline;">

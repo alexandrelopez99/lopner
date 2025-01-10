@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Login
+    Log in
 {% endblock %}
 
 {% block page_title %}
-    Enter password<br><br>
-    <img src="{{ url_for('static', filename='images/login_neushoorn.jpg') }}">
+    Log in
 {% endblock %}
 
 {% block content %}
+    <img src="{{ url_for('static', filename='images/login_neushoorn.png') }}">
     <form method="post">
         <p>
-            <label for="passcode">Passcode:</label><br>
+            <label for="passcode">Enter password:</label><br>
             <input type="password" name="passcode" id="passcode" required>
         </p>
         <p>
-            <button type="submit">Login</button>
+            <button type="submit">Submit</button>
         </p>
     </form>
     {% with messages = get_flashed_messages(with_categories=true) %}
