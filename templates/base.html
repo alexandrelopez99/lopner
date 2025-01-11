@@ -21,12 +21,14 @@
 
         body {
             font-family: 'Times New Roman', serif;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .pagetitle {
             text-align: center; /* Center the heading */
+            margin-top: 1em;
             margin-bottom: 1em;
+            
         }
 
         img {
@@ -55,11 +57,6 @@
         .pick:hover {
             background-color: #e06f6e;
         }
-        
-        button {
-            cursor: pointer;
-            padding: 2px 5px;
-        }
 
         .checkbox-container {
             display: grid;
@@ -76,6 +73,25 @@
 
         .checkbox-item input {
             margin-right: 10px;
+        }
+
+        button, .button {
+            display: inline-block;
+            margin: 0;
+            padding: 3px 7px;
+            color: black;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-family: "Arial", sans-serif;
+            font-size: 13.5px;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px outset #4F4F4F;
+            line-height: 1; /* Reset line height */
+        }
+
+        button:hover, .button:hover {
+            background-color: #e4e4e4; /* Darker shade of blue for hover effect */
         }
 
     </style>

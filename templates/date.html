@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block page_title %}
-    {{ date_info.title }}<br><br>
+    {{ date_info.title }}
 {% endblock %}
 
 {% block content %}
     {% if date_info.photo %}
-    <img src="{{ url_for('uploaded_file', filename=date_info.photo) }}">
+        <img src="{{ url_for('uploaded_file', filename=date_info.photo) }}">
     {% endif %}
     <p>{{ date_info.description }}</p>
     <h2>Logbook</h2>

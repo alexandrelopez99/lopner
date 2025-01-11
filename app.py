@@ -81,8 +81,6 @@ def pick_date():
 @app.route("/<date_id>")
 def date_page(date_id):
     date_info = date_ideas.get(date_id)
-    if date_info == None:
-        return redirect("/")
     return render_template("date.html", date_id=date_id, date_info=date_info)
 
 # Date editor
@@ -139,9 +137,9 @@ def delete_date(date_id):
     save_date_ideas()
     return redirect(url_for("index"))
 
-# Add new date
-@app.route("/add_date", methods=["POST","GET"])
-def add_date():
+# page to create new dates
+@app.route("/create_date")
+def create_date():
 
     # Create date with unique id
     new_id = str(max(int(id) for id in date_ideas.keys()) + 1)
@@ -153,6 +151,7 @@ def add_date():
     # Redirect editing newly created date
     return redirect(url_for("edit_date", date_id=new_id))
 
+# access to files
 @app.route("/uploads/<filename>")
 def uploaded_file(filename):
     response = supabase.storage.from_(bucket_name).create_signed_url(
@@ -163,4 +162,5 @@ def uploaded_file(filename):
 
 # Main function
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001)
+    # app.run(host="0.0.0.0", port=5001)
+    app.run()

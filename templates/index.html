@@ -23,9 +23,10 @@
             </label>
         </div>
         {% endfor %}
-        <a href="{{ url_for('add_date') }}"><button>➕ Add new date</button></a>
+        <div class="checkbox-item">
+            <a href="/create_date" class="button">Add new date</a>
+        </div>
     </div>
-    
     <button type="submit" class="pick">Pick Date!</button>
 </form>
 {% endblock %}  
